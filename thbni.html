@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Une petite question ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .box {
+      text-align: center;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      width: 80%;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #ff4f81;
+      font-size: 28px;
+    }
+
+    p {
+      color: #555;
+      font-size: 18px;
+    }
+
+    button {
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 17px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.2s;
+    }
+
+    #yes {
+      background: #ff4f81;
+      color: white;
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+    }
+
+    #no {
+      background: #eee;
+      color: #555;
+      position: absolute;
+    }
+
+    #message {
+      display: none;
+      font-size: 25px;
+      color: #ff4f81;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>💗 J'ai une petite question...</h1>
+    <p>thbni wla la 🥺❤️</p>
+
+    <button id="yes">Oui ❤️</button>
+    <button id="no">laa 😏</button>
+
+    <div id="message">
+      abaliii passissouu ! 😭❤️<br>
+    htna nhbk khlahh 🥰
+    </div>
+  </div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const yesButton = document.getElementById("yes");
+    const message = document.getElementById("message");
+
+    function moveButton() {
+      const maxX = window.innerWidth - noButton.offsetWidth - 20;
+      const maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+    }
+
+    // Sur ordinateur : le bouton fuit quand la souris approche
+    noButton.addEventListener("mouseenter", moveButton);
+
+    // Sur téléphone : il se déplace quand on essaie de le toucher
+    noButton.addEventListener("touchstart", function(event) {
+      event.preventDefault();
+      moveButton();
+    });
+
+    yesButton.addEventListener("click", function() {
+      message.style.display = "block";
+      yesButton.style.display = "none";
+      noButton.style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
